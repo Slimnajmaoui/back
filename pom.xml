@@ -46,7 +46,7 @@
         <dependency>
             <groupId>de.flapdoodle.embed</groupId>
             <artifactId>de.flapdoodle.embed.mongo</artifactId>
-                 <version>3.1.4</version>
+                 <version>3.4.14</version>
             <scope>test</scope>
         </dependency>
 
