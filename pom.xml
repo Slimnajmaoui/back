@@ -44,20 +44,19 @@
 
         <!-- Dépendance pour tester avec une base de données MongoDB embarquée -->
         <dependency>
-    <groupId>de.flapdoodle.embed</groupId>
-    <artifactId>de.flapdoodle.embed.mongo</artifactId>
-    <version>3.3.1</version>
-    <scope>test</scope>
-</dependency>
- <!-- Ajoutez également cette dépendance -->
-    <dependency>
-        <groupId>de.flapdoodle.embed</groupId>
-        <artifactId>de.flapdoodle.embed.process</artifactId>
-        <version>3.3.1</version>
-        <scope>test</scope>
-    </dependency>
+            <groupId>de.flapdoodle.embed</groupId>
+            <artifactId>de.flapdoodle.embed.mongo</artifactId>
+            <version>3.3.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>de.flapdoodle.embed</groupId>
+            <artifactId>de.flapdoodle.embed.process</artifactId>
+            <version>3.3.1</version>
+            <scope>test</scope>
+        </dependency>
 
-        <!-- (Optionnel) Si tu veux utiliser Mockito pour simuler des services -->
+        <!-- (Optionnel) Mockito pour simuler des services -->
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
@@ -65,7 +64,7 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- (Optionnel) Si tu utilises des tests d'assertions plus avancés avec AssertJ -->
+        <!-- (Optionnel) AssertJ pour des tests d'assertions avancés -->
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
@@ -104,14 +103,14 @@
             <optional>true</optional>
         </dependency>
 
-        <!-- Jackson for XML handling -->
+        <!-- Jackson pour le traitement XML -->
         <dependency>
             <groupId>com.fasterxml.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-xml</artifactId>
             <version>2.10.2</version>
         </dependency>
 
-        <!-- JWT dependencies -->
+        <!-- Dépendances JWT -->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt-api</artifactId>
@@ -128,6 +127,7 @@
             <version>0.11.5</version>
         </dependency>
 
+        <!-- Swagger pour la documentation de l'API -->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
@@ -150,6 +150,15 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
@@ -179,8 +188,6 @@
                     <artifactId>maven-resources-plugin</artifactId>
                     <version>3.1.0</version>
                 </plugin>
-                     <plugin>
-
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-deploy-plugin</artifactId>
