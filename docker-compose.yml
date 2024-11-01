@@ -9,7 +9,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8082:8082"  # Expose le port 8082 sur le port 8082 de l'hôte
+      - "8081:8081"  # Expose le port 8082 sur le port 8082 de l'hôte
     environment:
       SPRING_DATA_MONGODB_URI: mongodb://root:pfe@mongodb:27017/agiledb?authSource=admin
     depends_on:
