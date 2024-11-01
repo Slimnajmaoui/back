@@ -7,6 +7,6 @@ WORKDIR /app
 # Copier le jar généré dans le répertoire de travail
 COPY target/Back_PFE-0.1.1.jar   /app/Back_PFE-0.1.1.jar
 
-EXPOSE 8081
+EXPOSE 8082
 
 CMD ["java", "-jar", "Back_PFE-0.1.1.jar"]
