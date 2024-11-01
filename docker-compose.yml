@@ -36,7 +36,7 @@ services:
     image: nejmaoui/frontend:angular
     container_name: angular-frontend
     ports:
-      - "8084:80"  # Exposer l'application sur le port 80
+      - "80:80"  # Exposer l'application sur le port 80
     networks:
       - front-network
     depends_on:
