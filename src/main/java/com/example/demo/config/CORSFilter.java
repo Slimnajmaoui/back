@@ -16,7 +16,7 @@ public class CORSFilter extends OncePerRequestFilter {
 	 @Override
 	    protected void doFilterInternal(final HttpServletRequest request, final HttpServletResponse response,
 	                                    final FilterChain filterChain) throws ServletException, IOException {
-	        response.setHeader("Access-Control-Allow-Origin", "http://20.55.80.124:8084");
+	        response.setHeader("Access-Control-Allow-Origin", "*");
 	        response.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, PATCH, HEAD, OPTIONS");
 	        response.setHeader("Access-Control-Allow-Headers", "Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers,Authorization");
 	        response.setHeader("Access-Control-Expose-Headers", "Access-Control-Allow-Origin, Access-Control-Allow-Credentials");
