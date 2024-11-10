@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.Optional;
 import org.springframework.web.bind.annotation.DeleteMapping;
 
-@CrossOrigin(origins = "http://localhost:8081")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api")
 public class ProfilController {
