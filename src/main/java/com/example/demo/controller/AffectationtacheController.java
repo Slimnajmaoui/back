@@ -79,7 +79,7 @@ TacheRepository tacherepos ;
 	  User u = this.userrepos.findById(id).get();
 	  Tache aff = this.tacherepos.findById(idtache).get();
 	  Affectationtache.setTache(aff);
-	  Affectationtache.setiduser(u);
+	  Affectationtache.setUser(u);
     try {
     	Affectationtache _Affectationtache = AffectationtacheRepository.save(Affectationtache);
         return new ResponseEntity<>(_Affectationtache, HttpStatus.CREATED);
@@ -101,14 +101,14 @@ TacheRepository tacherepos ;
 	  Tache aff = this.tacherepos.findById(idtache).get();
 
     if (AffectationtacheData!=null) {
-    	AffectationtacheData.setnom(Affectationtache.getnom());
-    	AffectationtacheData.setdatecreation(Affectationtache.getdatecreation());
+    	AffectationtacheData.setNom(Affectationtache.getNom());
+    	AffectationtacheData.setDatecreation(Affectationtache.getDatecreation());
     	AffectationtacheData.setDatedebut(Affectationtache.getDatedebut());
     	AffectationtacheData.setDatefin(Affectationtache.getDatefin());
-    	AffectationtacheData.setdatemodification(Affectationtache.getdatemodification());
-    	AffectationtacheData.setdescription(Affectationtache.getdescription());
-    	AffectationtacheData.setetat(Affectationtache.getetat());
-    	AffectationtacheData.setiduser(u);
+    	AffectationtacheData.setDatemodification(Affectationtache.getDatemodification());
+    	AffectationtacheData.setDescription(Affectationtache.getDescription());
+    	AffectationtacheData.setEtat(Affectationtache.getEtat());
+    	AffectationtacheData.setUser(u);
     	AffectationtacheData.setTache(aff);
     	return new ResponseEntity<>(AffectationtacheRepository.save(AffectationtacheData), HttpStatus.OK);
     } else {

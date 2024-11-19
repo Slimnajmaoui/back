@@ -84,17 +84,15 @@ public class UserController {
   }
   
   @PostMapping("/Users")
-  public ResponseEntity<User> createUser(@RequestBody User User,String profil) {
-    try {
+  public String createUser(@RequestBody User User,String profil) {
     	role r =this.rolerepos.findByProfil(profil);
     	String pass = encoder.encode(User.getMdp());
+    	System.out.println(pass);
     	User.setMdp(pass);
     	User.setRole(r);
-        User _User = UserRepository.save(User);
-        return new ResponseEntity<>(_User, HttpStatus.CREATED);
-      } catch (Exception e) {
-        return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-      }
+       this.UserRepository.save(User);
+      
+        return "true"; 
   }
 
   @PutMapping("/Users")

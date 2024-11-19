@@ -1,32 +1,22 @@
 package com.example.demo.model;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.Transient;
-import org.springframework.data.mongodb.core.mapping.Document;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.*;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-@Document
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+@Entity
 public class role {
 
 	@Id
-	private String id ;
+	  @GeneratedValue(strategy=GenerationType.AUTO)
+
+	private Long id ;
 	private String profil ;
 
-	public String getProfil() {
-		return profil;
-	}
-	public void setProfil(String profil) {
-		this.profil = profil;
-	}
-	public role(String id, String profil) {
-		super();
-		this.id = id;
-		this.profil = profil;
-	}
-	public role() {
-		super();
-	} 
-	
-}
+}	

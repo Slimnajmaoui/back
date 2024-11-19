@@ -66,7 +66,7 @@ public class NotificationController {
   @PostMapping("/Notifications")
   public ResponseEntity<Notification> createNotification(@RequestBody Notification Notification) {
     try {
-        Notification _Notification = NotificationRepository.save(new Notification(Notification.getsujet(), Notification.getdescription(), Notification.getsujet()));
+        Notification _Notification = NotificationRepository.save(Notification);
         return new ResponseEntity<>(_Notification, HttpStatus.CREATED);
       } catch (Exception e) {
         return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -79,9 +79,9 @@ public class NotificationController {
 
     if (NotificationData.isPresent()) {
       Notification _Notification = NotificationData.get();
-      _Notification.setsujet(Notification.getsujet());
-      _Notification.setdescription(Notification.getdescription());
-      _Notification.setsujet(Notification.issujet());
+      _Notification.setSujet(Notification.getSujet());
+      _Notification.setDescription(Notification.getDescription());
+      _Notification.setSujet(Notification.getSujet());
       return new ResponseEntity<>(NotificationRepository.save(_Notification), HttpStatus.OK);
     } else {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);

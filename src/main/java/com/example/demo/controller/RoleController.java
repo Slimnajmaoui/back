@@ -1,14 +1,9 @@
 package com.example.demo.controller;
 
-import static org.springframework.data.mongodb.core.FindAndModifyOptions.options;
-import static org.springframework.data.mongodb.core.query.Criteria.where;
-import static org.springframework.data.mongodb.core.query.Query.query;
 
 import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.MongoOperations;
-import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,13 +30,6 @@ public ResponseEntity<role> createUser(@RequestBody role r) {
         return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
       }
   }
-
-@Autowired
-private MongoOperations mongoOperations;
-
-public RoleController(MongoOperations mongoOperations) {
-    this.mongoOperations = mongoOperations;
-}
 
 
 

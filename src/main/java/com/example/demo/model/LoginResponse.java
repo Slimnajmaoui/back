@@ -16,6 +16,6 @@ public class LoginResponse {
     @NonNull
     private String email ;
     @NonNull
-    private String id ;
+    private Long id ;
 
 }

@@ -76,7 +76,7 @@ ProjetRepository projetrepos ;
   public ResponseEntity<Affectationprojet> createAffectationgroupe(@RequestBody Affectationprojet Affectationprojet,String id,String idprojet) {
 	  User u = this.userrepos.findById(id).get();
 	  Projet p =this.projetrepos.findById(idprojet).get();
-	  Affectationprojet.setiduser(u);
+	  Affectationprojet.setUser(u);
 	  Affectationprojet.setProjet(p);
     try {
     	Affectationprojet _Affectationprojet = AffectationprojetRepository.save(Affectationprojet);
@@ -96,12 +96,12 @@ public List<Affectationprojet> affectationprojetbyuser(String iduser){
 
     if (AffectationprojetData.isPresent()) {
     	Affectationprojet _Affectationprojet = AffectationprojetData.get();
-    	_Affectationprojet.setnom(Affectationprojet.getnom());
-    	_Affectationprojet.setdescription(Affectationprojet.getdescription());
-    	_Affectationprojet.setetat(Affectationprojet.getetat());
-    	_Affectationprojet.setiduser(Affectationprojet.getuser());
-    	_Affectationprojet.setdatecreation(Affectationprojet.getdatecreation());
-    	_Affectationprojet.setdatemodification(Affectationprojet.getdatemodification());
+    	_Affectationprojet.setNom(Affectationprojet.getNom());
+    	_Affectationprojet.setDescription(Affectationprojet.getDescription());
+    	_Affectationprojet.setEtat(Affectationprojet.getEtat());
+    	_Affectationprojet.setUser(Affectationprojet.getUser());
+    	_Affectationprojet.setDatecreation(Affectationprojet.getDatecreation());
+    	_Affectationprojet.setDatemodification(Affectationprojet.getDatemodification());
       return new ResponseEntity<>(AffectationprojetRepository.save(_Affectationprojet), HttpStatus.OK);
     } else {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);

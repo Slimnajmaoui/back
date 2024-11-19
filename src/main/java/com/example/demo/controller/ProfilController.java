@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.Optional;
 import org.springframework.web.bind.annotation.DeleteMapping;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:8081")
 @RestController
 @RequestMapping("/api")
 public class ProfilController {
@@ -66,7 +66,7 @@ public class ProfilController {
   @PostMapping("/Profils")
   public ResponseEntity<Profil> createProfil(@RequestBody Profil Profil) {
     try {
-        Profil _Profil = ProfilRepository.save(new Profil(Profil.getnom(), Profil.getprenom()));
+        Profil _Profil = ProfilRepository.save(Profil);
         return new ResponseEntity<>(_Profil, HttpStatus.CREATED);
       } catch (Exception e) {
         return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -79,9 +79,9 @@ public class ProfilController {
 
     if (ProfilData.isPresent()) {
       Profil _Profil = ProfilData.get();
-      _Profil.setnom(Profil.getnom());
-      _Profil.setprenom(Profil.getprenom());
-      _Profil.setdiplome(Profil.getdiplome());
+      _Profil.setNom(Profil.getNom());
+      _Profil.setPrenom(Profil.getPrenom());
+      _Profil.setDiplome(Profil.getDiplome());
       return new ResponseEntity<>(ProfilRepository.save(_Profil), HttpStatus.OK);
     } else {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);

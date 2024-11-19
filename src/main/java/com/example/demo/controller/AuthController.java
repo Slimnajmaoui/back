@@ -47,7 +47,10 @@ public class AuthController {
     
     
     
-   
+    
+    
+    
+    
     @PostMapping("/login")
     public ResponseEntity<LoginResponse> login2(@Valid @RequestBody LoginRequest loginRequest)
     {

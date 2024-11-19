@@ -3,11 +3,11 @@ package com.example.demo.repository;
 
 import java.util.List;
 
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.demo.model.Competence;
 
-public interface CompetenceRepository extends MongoRepository<Competence, String> {
+public interface CompetenceRepository extends JpaRepository<Competence, String> {
   List<Competence> findBynomContaining(String title);
   List<Competence> findBynom(String nom);
 }

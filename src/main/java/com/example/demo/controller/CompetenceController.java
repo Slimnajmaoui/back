@@ -66,7 +66,7 @@ public class CompetenceController {
   @PostMapping("/Competences")
   public ResponseEntity<Competence> createCompetence(@RequestBody Competence Competence) {
     try {
-        Competence _Competence = CompetenceRepository.save(new Competence(Competence.getnom(), Competence.getdescription(), Competence.getnom()));
+        Competence _Competence = CompetenceRepository.save(Competence);
         return new ResponseEntity<>(_Competence, HttpStatus.CREATED);
       } catch (Exception e) {
         return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -79,10 +79,10 @@ public class CompetenceController {
 
     if (CompetenceData.isPresent()) {
       Competence _Competence = CompetenceData.get();
-      _Competence.setnom(Competence.getnom());
-      _Competence.setdescription(Competence.getdescription());
-      _Competence.setdatecreation(Competence.getdatecreation());
-      _Competence.setdatemodification(Competence.getdatemodification());
+      _Competence.setNom(Competence.getNom());
+      _Competence.setDescription(Competence.getDescription());
+      _Competence.setDatecreation(Competence.getDatecreation());
+      _Competence.setDatemodification(Competence.getDatemodification());
       return new ResponseEntity<>(CompetenceRepository.save(_Competence), HttpStatus.OK);
     } else {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);

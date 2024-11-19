@@ -79,9 +79,9 @@ public class ProjetController {
 
     if (ProjetData.isPresent()) {
       Projet _Projet = ProjetData.get();
-      _Projet.setnom(Projet.getnom());
-      _Projet.setdescription(Projet.getdescription());
-      _Projet.setdatedebut(Projet.getdatedebut());
+      _Projet.setNom(Projet.getNom());
+      _Projet.setDescription(Projet.getDescription());
+      _Projet.setDatedebut(Projet.getDatedebut());
       return new ResponseEntity<>(ProjetRepository.save(_Projet), HttpStatus.OK);
     } else {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);

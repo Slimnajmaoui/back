@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.Optional;
 import org.springframework.web.bind.annotation.DeleteMapping;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:8081")
 @RestController
 @RequestMapping("/api")
 public class MessageController {
@@ -66,7 +66,7 @@ public class MessageController {
   @PostMapping("/Messages")
   public ResponseEntity<Message> createMessage(@RequestBody Message Message) {
     try {
-        Message _Message = MessageRepository.save(new Message(Message.getidenvoie(), Message.getidreception(), Message.getidenvoie()));
+        Message _Message = MessageRepository.save(Message);
         return new ResponseEntity<>(_Message, HttpStatus.CREATED);
       } catch (Exception e) {
         return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -79,9 +79,9 @@ public class MessageController {
 
     if (MessageData.isPresent()) {
       Message _Message = MessageData.get();
-      _Message.setidenvoie(Message.getidenvoie());
-      _Message.setidreception(Message.getidreception());
-      _Message.setetat(Message.isetat());
+      _Message.setIdenvoie(Message.getIdenvoie());
+      _Message.setIdreception(Message.getIdreception());
+      _Message.setEtat(Message.getEtat());
       return new ResponseEntity<>(MessageRepository.save(_Message), HttpStatus.OK);
     } else {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);

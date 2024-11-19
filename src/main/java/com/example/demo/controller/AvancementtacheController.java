@@ -70,7 +70,7 @@ public class AvancementtacheController {
   @PostMapping("/Avancementtaches")
   public ResponseEntity<Avancementtache> createAvancementtache(@RequestBody Avancementtache Avancementtache,String idprojet) {
 	  Affectationprojet affec = this.affectationprojetrepos.findById(idprojet).get();
-	  Avancementtache.setidprojet(affec);
+	  Avancementtache.setIdprojet(affec);
 	  
 	  try {
         Avancementtache _Avancementtache = AvancementtacheRepository.save(Avancementtache);
@@ -86,14 +86,14 @@ public class AvancementtacheController {
 
     if (AvancementtacheData.isPresent()) {
       Avancementtache _Avancementtache = AvancementtacheData.get();
-      _Avancementtache.setnom(Avancementtache.getnom());
-      _Avancementtache.setdescription(Avancementtache.getdescription());
-      _Avancementtache.setdatedebut(Avancementtache.getdatedebut());
-      _Avancementtache.setdatefin(Avancementtache.getdatefin());
-      _Avancementtache.setidprojet(Avancementtache.getidprojet());
-      _Avancementtache.setetat(Avancementtache.getetat());
-      _Avancementtache.setavancement(Avancementtache.getavancement());
-      _Avancementtache.setdatecreation(Avancementtache.getdatecreation());
+      _Avancementtache.setNom(Avancementtache.getNom());
+      _Avancementtache.setDescription(Avancementtache.getDescription());
+      _Avancementtache.setDatedebut(Avancementtache.getDatedebut());
+      _Avancementtache.setDatefin(Avancementtache.getDatefin());
+      _Avancementtache.setIdprojet(Avancementtache.getIdprojet());
+      _Avancementtache.setEtat(Avancementtache.getEtat());
+      _Avancementtache.setAvancement(Avancementtache.getAvancement());
+      _Avancementtache.setDatecreation(Avancementtache.getDatecreation());
       return new ResponseEntity<>(AvancementtacheRepository.save(_Avancementtache), HttpStatus.OK);
     } else {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);

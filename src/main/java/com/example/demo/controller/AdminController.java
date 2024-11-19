@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.Optional;
 import org.springframework.web.bind.annotation.DeleteMapping;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:8081")
 @RestController
 @RequestMapping("/api")
 public class AdminController {
@@ -66,7 +66,7 @@ public class AdminController {
   @PostMapping("/Admins")
   public ResponseEntity<Admin> createAdmin(@RequestBody Admin Admin) {
     try {
-        Admin _Admin = AdminRepository.save(new Admin(Admin.getusername(), Admin.getmotdepasse(), Admin.getemail()));
+        Admin _Admin = AdminRepository.save(Admin);
         return new ResponseEntity<>(_Admin, HttpStatus.CREATED);
       } catch (Exception e) {
         return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -79,9 +79,9 @@ public class AdminController {
 
     if (AdminData.isPresent()) {
       Admin _Admin = AdminData.get();
-      _Admin.setusername(Admin.getusername());
-      _Admin.setmotdepasse(Admin.getmotdepasse());
-      _Admin.setemail(Admin.getemail());
+      _Admin.setUsername(Admin.getUsername());
+      _Admin.setMotdepasse(Admin.getMotdepasse());
+      _Admin.setEmail(Admin.getEmail());
       return new ResponseEntity<>(AdminRepository.save(_Admin), HttpStatus.OK);
     } else {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);

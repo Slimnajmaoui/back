@@ -79,11 +79,11 @@ public class GroupeController {
 
     if (GroupeData.isPresent()) {
       Groupe _Groupe = GroupeData.get();
-      _Groupe.setnom(Groupe.getnom());
-      _Groupe.setdescription(Groupe.getdescription());
-      _Groupe.setetat(Groupe.getetat());
-      _Groupe.setdatecreation(Groupe.getdatecreation());
-      _Groupe.setdatemodification(Groupe.getdatemodification());
+      _Groupe.setNom(Groupe.getNom());
+      _Groupe.setDescription(Groupe.getDescription());
+      _Groupe.setEtat(Groupe.getEtat());
+      _Groupe.setDatecreation(Groupe.getDatecreation());
+      _Groupe.setDatemodifcation(Groupe.getDatemodifcation());
       return new ResponseEntity<>(GroupeRepository.save(_Groupe), HttpStatus.OK);
     } else {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);

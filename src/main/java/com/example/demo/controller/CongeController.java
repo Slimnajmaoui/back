@@ -88,14 +88,14 @@ return this.CongeRepository.findByUser(u);
 
     if (CongeData.isPresent()) {
       Conge _Conge = CongeData.get();
-      _Conge.settitre(Conge.gettitre());
-      _Conge.setdescription(Conge.getdescription());
-      _Conge.setetat(Conge.getetat());
-      _Conge.setdatedebut(Conge.getdatedebut());
-      _Conge.setdatefin(Conge.getdatefin());
+      _Conge.setTitre(Conge.getTitre());
+      _Conge.setDescription(Conge.getDescription());
+      _Conge.setEtat(Conge.getEtat());
+      _Conge.setDatedebut(Conge.getDatedebut());
+      _Conge.setDatefin(Conge.getDatefin());
       
-      _Conge.setdatecreation(Conge.getdatecreation());
-      _Conge.setdatemodification(Conge.getdatemodification());
+      _Conge.setDatecreation(Conge.getDatecreation());
+      _Conge.setDatemodification(Conge.getDatemodification());
       return new ResponseEntity<>(CongeRepository.save(_Conge), HttpStatus.OK);
     } else {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);

@@ -82,7 +82,7 @@ GroupeRepository grouperepos ;
   public ResponseEntity<Affectationgroupe> createAffectationgroupe(@RequestBody Affectationgroupe Affectationgroupe,String id,String idgroupe) {
 	  User u = this.userrepos.findById(id).get();
 	  Groupe g = this.grouperepos.findById(idgroupe).get();
-	  Affectationgroupe.setiduser(u);
+	  Affectationgroupe.setUser(u);
 	  Affectationgroupe.setGroupe(g);
     try {
         Affectationgroupe _Affectationgroupe = AffectationgroupeRepository.save(Affectationgroupe);
@@ -100,13 +100,13 @@ GroupeRepository grouperepos ;
 	 
     if (AffectationgroupeData!=null) {
     	
-    	AffectationgroupeData.setnom(Affectationgroupe.getnom());
-    	AffectationgroupeData.setdescription(Affectationgroupe.getdescription());
-    	AffectationgroupeData.setetat(Affectationgroupe.getetat());
-    	AffectationgroupeData.setiduser(u);
+    	AffectationgroupeData.setNom(Affectationgroupe.getNom());
+    	AffectationgroupeData.setDescription(Affectationgroupe.getDescription());
+    	AffectationgroupeData.setEtat(Affectationgroupe.getEtat());
+    	AffectationgroupeData.setUser(u);
     	Affectationgroupe.setGroupe(g);
-    	AffectationgroupeData.setdatecreation(Affectationgroupe.getdatecreation());
-    	AffectationgroupeData.setdatemodification(Affectationgroupe.getdatemodification());
+    	AffectationgroupeData.setDatecreation(Affectationgroupe.getDatecreation());
+    	AffectationgroupeData.setDatemodification(Affectationgroupe.getDatemodification());
       return new ResponseEntity<>(AffectationgroupeRepository.save(AffectationgroupeData), HttpStatus.OK);
     } else {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);

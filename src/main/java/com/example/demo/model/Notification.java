@@ -2,62 +2,27 @@ package com.example.demo.model;
 
 
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.*;
 
-@Document(collection = "Notifications")
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+@Entity
 public class Notification {
   @Id
-  private String id;
+  @GeneratedValue(strategy=GenerationType.AUTO)
+
+  private Long id;
 
   private String sujet;
   private String description;
   private String datecreation;
 
-  public Notification() {
-
-  }
-  public String getdatecreation() {
-	    return datecreation;
-	  }
-
-	  public void setdatecreation(String datecreation) {
-	    this.datecreation = datecreation;
-	  }
-  public Notification(String sujet, String description, String datecreation) {
-    this.sujet = sujet;
-    this.description = description;
-
-  }
-
-  public String getId() {
-    return id;
-  }
-
-  public String getsujet() {
-    return sujet;
-  }
-
-
-
-  public String getdescription() {
-    return description;
-  }
-
-  public void setdescription(String description) {
-    this.description = description;
-  }
-
-  public String issujet() {
-    return sujet;
-  }
-
-  public void setsujet(String issujet) {
-    this.sujet = issujet;
-  }
-
-  @Override
-  public String toString() {
-    return "Notification [id=" + id + ", sujet=" + sujet + ", desc=" + description + ", sujet=" + sujet + "]";
-  }
 }

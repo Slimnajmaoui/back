@@ -86,13 +86,13 @@ AffectationprojetRepository affectationprojetrepos ;
     Affectationprojet affec = this.affectationprojetrepos.findById(idprojet).get();
 
     if (AvancementprojetData!=null) {
-      AvancementprojetData.setnom(Avancementprojet.getnom());
-      AvancementprojetData.setdescription(Avancementprojet.getdescription());
-      AvancementprojetData.setdatedebut(Avancementprojet.getdatedebut());
-      AvancementprojetData.setdatefin(Avancementprojet.getdatefin());
-      AvancementprojetData.setetat(Avancementprojet.getetat());
-      AvancementprojetData.setavancement(Avancementprojet.getavancement());
-      AvancementprojetData.setdatecreation(Avancementprojet.getdatecreation());
+      AvancementprojetData.setNom(Avancementprojet.getNom());
+      AvancementprojetData.setDescription(Avancementprojet.getDescription());
+      AvancementprojetData.setDatedebut(Avancementprojet.getDatedebut());
+      AvancementprojetData.setDatefin(Avancementprojet.getDatefin());
+      AvancementprojetData.setEtat(Avancementprojet.getEtat());
+      AvancementprojetData.setAvancement(Avancementprojet.getAvancement());
+      AvancementprojetData.setDatecreation(Avancementprojet.getDatecreation());
       AvancementprojetData.setAffectationprojet(affec);
       return new ResponseEntity<>(AvancementprojetRepository.save(AvancementprojetData), HttpStatus.OK);
     } else {
